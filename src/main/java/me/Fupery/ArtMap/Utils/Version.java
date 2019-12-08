@@ -7,7 +7,9 @@ public class Version implements Comparable<Version> {
     private final int[] numbers;
 
     public Version(Plugin plugin) {
-        String[] strings = plugin.getDescription().getVersion().split("\\.");
+    	String version = plugin.getDescription().getVersion();
+    	version = version.replace(" Pre-Release 4", "");
+        String[] strings = version.split("\\.");
         
         int[] numbers = new int[strings.length];
         for (int i = 0; i < strings.length; i++) {
